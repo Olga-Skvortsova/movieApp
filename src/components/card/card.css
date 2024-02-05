@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-div {
+  width: 451px;
+  height: 279px;
+  margin: auto;
+  box-shadow: 0px 4px 12px 0px #00000026;
+  display: grid;
+  grid-template-columns: 183px 180px;
+  grid-template-rows: 56px 22px 41px 100px;
+  row-gap: 7px;
+  column-gap: 20px;
+  grid-template-areas:
+  "image header rond"
+  "image data data"
+  "image buttons buttons"
+  "image description description"
+  "image rate rate";
+}
+
+.card-div__movie-photo {
+  grid-area: image;
+  background-color: antiquewhite;
+}
+
+h2 {
+  grid-area: header;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.card-div__buttons {
+  grid-area: buttons;
+}
+
+.card-div__button {
+  height: 20px;
+  border-radius: 2px;
+  background: linear-gradient(0deg, #D9D9D9, #D9D9D9), linear-gradient(0deg, #FAFAFA, #FAFAFA);
+  border: 1px solid #D9D9D9;
+  margin-right: 8px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.card-div__date {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  grid-area: data;
+}
+
+.card-div__description {
+  grid-area: description;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.card-div__rate {
+  grid-area: rate;
+}
+
+.ant-rate-star {
+  width: 16px;
+}
+
+.card-div__round {
+  grid-area: rond;
+}

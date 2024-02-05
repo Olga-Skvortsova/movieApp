@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb", "airbnb/hooks", "prettier", "plugin:prettier/recommended", "plugin:react/recommended", "plugin:react/jsx-runtime"],
+  "parserOptions": { 
+    "ecmaFeatures": { "jsx": true }, 
+    "ecmaVersion": "latest", 
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-unused-vars":"off",
+    "class-methods-use-this":"off"
+  }
+}
