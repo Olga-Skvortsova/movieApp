@@ -189,22 +189,27 @@ export default class Cards extends React.Component {
 
   handleTabChange = (key) => {
     if (key === '1') {
-      this.newFilms();
+      // Переключение на вкладку "Search"
+      this.newFilms(1); // Устанавливаем текущую страницу пагинации на 1
+      this.setState({ currentPage: 1 }); // Сбрасываем текущую страницу в состоянии компонента
     }
     if (key === '2') {
-      this.getRateMovies(this.props.sessionId.guest_session_id);
+      // Переключение на вкладку "Rated"
+      this.getRateMovies(this.props.sessionId.guest_session_id, 1); // Устанавливаем текущую страницу пагинации на 1
+      this.setState({ currentPage: 1 }); // Сбрасываем текущую страницу в состоянии компонента
     }
   };
 
   render() {
     const { movies, loading, error, url, inputContentState, hasResult } = this.state;
     const onChange = (page) => {
+      const { url } = this.state;
       if (url[29] === 'd') {
-        this.newFilms(page);
+        this.newFilms(page); // Загрузка данных для вкладки "Search"
       } else if (url[29] === 's') {
-        this.searchChange(inputContentState, page);
+        this.searchChange(this.state.inputContentState, page); // Загрузка данных для вкладки "Search"
       } else {
-        this.getRateMovies(this.props.sessionId.guest_session_id, page);
+        this.getRateMovies(this.props.sessionId.guest_session_id, page); // Загрузка данных для вкладки "Rated"
       }
     };
     const errorIndicator = error ? <Errorr /> : null;
@@ -215,6 +220,7 @@ export default class Cards extends React.Component {
       <Pagination
         className="paginationInSite"
         defaultCurrent={1}
+        current={this.state.currentPage} // Установите текущую страницу из состояния
         total={500}
         onChange={onChange}
         showSizeChanger={false}
@@ -267,7 +273,7 @@ export default class Cards extends React.Component {
     return (
       <React.Fragment>
         <Tabs
-          destroyInactiveTabPane={false}
+          destroyInactiveTabPane={true}
           defaultActiveKey="1"
           onChange={this.handleTabChange}
           centered
